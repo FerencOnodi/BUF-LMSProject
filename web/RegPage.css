@@ -1,0 +1,66 @@
+body {
+    background-image: url("icon.png");
+    position: fixed;
+    background-repeat: no-repeat;
+}
+.reg-form {
+    position: fixed;
+    text-align: center;
+    left: 40%;
+    top: 10%;
+    background-color: black;
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+    opacity: 0.8;
+}
+
+.reg-form p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    margin-top: 15px;
+    color: white;
+    padding: 0;
+}
+.reg-form input {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.reg-form select {
+    font-family: 'Open Sans', sans-serif;
+    width: 50%;
+    height: 7%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#button {
+    font-family: 'Open Sans', sans-serif;
+    width: 30%;
+    height: auto;
+    margin-top: 20px;
+    color: black;
+    cursor: pointer;
+}
+
+.reg-form a {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 12px;
+    display: block;
+    margin-top: 40px;
+    padding-bottom: 5px;
+}
+
+.reg-form a:hover {
+    color: #81CFE0;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: black;
+}
+

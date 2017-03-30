@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="RegPage.css">
+    <link rel="icon" href="icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+<div class="reg-form">
+    <form action="RegistrationServlet" method="post">
+        <p>Name</p>
+        <input type="text" name="name" placeholder="Your Name">
+        <p>Email address</p>
+        <input type="text" name="email" placeholder="yourname@email.com">
+        <p>Password</p>
+        <input type="password" name="password">
+        <p>Select your role</p>
+        <select name="role">
+            <option>Student</option>
+            <option>Mentor</option>
+        </select>
+        <br>
+        <input id="button" type="submit" value="Register">
+        <br>
+        <a href="LoginPage.html">I already have an account.</a>
+    </form>
+</div>
+</body>
+</html>
