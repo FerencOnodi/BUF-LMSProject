@@ -1,0 +1,29 @@
+.foreground {
+    margin: auto;
+    margin-top: 50px;
+    width: 50%;
+    text-align: justify;
+}
+
+.foreground h3 {
+    text-align: center;
+    margin: 50px 0 20px 0;
+}
+
+.foreground p {
+    text-align: justify;
+}
+
+.brand {
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+}
+
+input {
+    margin-top: 5px;
+}
+
+form {
+    margin-top: 50px;
+}

@@ -1,0 +1,23 @@
+.navbar {
+    margin: 0;
+}
+
+.jumbotron {
+    margin: 0;
+}
+
+.boxed {
+    width: 50%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.boxed h2 {
+    margin-bottom: 50px;
+}
+
+.boxed p {
+    text-align: center;
+    margin: 20px 0 0 0;
+    padding: 0;
+}
