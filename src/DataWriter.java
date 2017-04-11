@@ -11,7 +11,7 @@ public class DataWriter {
     public void dataWriter(String name, String email, String password, String role){
 
         try{
-            FileWriter fw = new FileWriter("/home/ferenc/Desktop/Java/Web/Registration/UserPassword.txt", true);
+            FileWriter fw = new FileWriter("/home/vajni/Codecool Projects/Web_Projects/LMS/BUF-LMSProject/UserPassword.txt", true);
 
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw);

@@ -53,6 +53,8 @@ public class ProfileServlet extends HttpServlet {
                 "<a href="+"\\" + "ListServlet?" +"role=" + role + "><input type=" + "\""+ "submit" + "\"" +
                 ">" + "</a>" +
                 "</div>\n" +
+                "<a href="+"\\" + "AssPage.html><input type=" + "\""+ "submit" + "\"" +
+                ">" + "</a>" +
                 "</body>");
     }
 }

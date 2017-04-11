@@ -9,7 +9,7 @@ public class DataValidator {
 
     public boolean dataValidator(String email, String password){
 
-        File file = new File("/home/ferenc/Desktop/Java/Web/Registration/UserPassword.txt");
+        File file = new File("/home/vajni/Codecool Projects/Web_Projects/LMS/BUF-LMSProject/UserPassword.txt");
 
         try {
             Scanner scanner = new Scanner(file);

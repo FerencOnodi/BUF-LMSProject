@@ -12,7 +12,7 @@ public class ProfileParser {
 
     public void profileParser() {
 
-        String csvFile = "/home/ferenc/Desktop/Java/Web/Registration/UserPassword.txt";
+        String csvFile = "/home/vajni/Codecool Projects/Web_Projects/LMS/BUF-LMSProject/UserPassword.txt";
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
