@@ -1,0 +1,27 @@
+.reg-form {
+    width: 25%;
+    margin: 100px auto;
+    text-align: center;
+    background-color: #eee;
+}
+
+.reg-form p {
+    margin: 0;
+    padding: 20px 0 0 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.reg-form input {
+    margin: 5px 0 5px 0;
+    padding: 0;
+}
+
+#button {
+    margin-bottom: 20px;
+}
+
+.reg-form a {
+    color: white;
+}
+
