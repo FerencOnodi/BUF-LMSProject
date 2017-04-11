@@ -1,5 +1,7 @@
 var source;
 
+var assignmentElements = {listItems : []};
+
 function isbefore(a, b) {
     if (a.parentNode == b.parentNode) {
         for (var cur = a; cur; cur = cur.previousSibling) {
@@ -24,3 +26,48 @@ function dragstart(e) {
     source = e.target;
     e.dataTransfer.effectAllowed = 'move';
 }
+
+function addAssignment() {
+    var ul = document.getElementById("assignmentList");
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    var assignment = prompt("Enter the title of the assignment!");
+    a.appendChild(document.createTextNode(assignment));
+    a.setAttribute("href", "AssPage.html");
+    li.appendChild(a);
+    li.setAttribute("draggable", "true");
+    li.setAttribute("ondragenter","dragenter(event)" );
+    li.setAttribute("ondragstart", "dragstart(event)");
+    ul.appendChild(li);
+    assignmentElements.listItems.push(assignment);
+    console.log(String(assignmentElements.listItems[0]));
+$.ajax({
+    url: "/AddTextPageServlet",
+    data: JSON.stringify(assignmentElements),
+    type: "POST"
+
+});
+
+}
+
+
+function loadAssignments() {
+
+    //var jsonObject = jQuery.getJSON("/home/vajni/Codecool Projects/Web_Projects/LMS/BUF-LMSProject/web/JSON/request.json");
+    //var parsedJSON = JSON.parse(jsonObject);
+    //for (var i in parsedJSON) {
+        var ul = document.getElementById("assignmentList");
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.appendChild(document.createTextNode(i));
+        a.setAttribute("href", "AssPage.html");
+        li.appendChild(a);
+        li.setAttribute("draggable", "true");
+        li.setAttribute("ondragenter", "dragenter(event)");
+        li.setAttribute("ondragstart", "dragstart(event)");
+        ul.appendChild(li);
+
+
+}
+
+

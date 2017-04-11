@@ -21,7 +21,6 @@ public class CurriculumServlet extends HttpServlet {
         Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
 
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-        System.out.println(fileName);
         InputStream fileContent = filePart.getInputStream();
         Cookie[] cookie = request.getCookies();
         String cookieVal;

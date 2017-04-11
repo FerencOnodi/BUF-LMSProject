@@ -53,4 +53,13 @@
         <url-pattern>/CurriculumServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddTextPageServlet</servlet-name>
+        <servlet-class>AddTextPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTextPageServlet</servlet-name>
+        <url-pattern>/AddTextPageServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

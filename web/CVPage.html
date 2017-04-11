@@ -37,27 +37,30 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        s<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="#">Profile</a></li>
                 <li class="active"><a href="#">CV <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Link</a></li>
             </ul>
             <form class="navbar-form navbar-right">
-                <button type="submit" class="btn btn-primary">Add assignment</button>
+                <button type="button" class="btn btn-primary" onclick="addAssignment()">Add assignment</button>
                 <button type="submit" class="btn btn-primary">Add text page</button>
             </form>
         </div><!-- /.navbar-collapse -->
 
     </div><!-- /.container-fluid -->
 </nav>
+<div class="dragable_list">
 
-    <ul>
-        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)">First assignment</li>
-        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)">Second assignment</li>
-        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)">Third assignment</li>
-        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)">Fourth assignment</li>
+    <ul id="assignmentList">
+        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)"><a href="AssPage.html">First assignment</a></li>
+        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)"><a href="AssPage.html">Second assignment</a></li>
+        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)"><a href="AssPage.html">Third assignment</a></li>
+        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)"><a href="AssPage.html">Fourth assignment</a></li>
     </ul>
+</div>
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
