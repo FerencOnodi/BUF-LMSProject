@@ -8,10 +8,10 @@ import java.io.PrintWriter;
  */
 public class DataWriter {
 
-    public void dataWriter(String name, String email, String password, String role){
+    public void dataWriter(String name, String email, String password, String role, String path){
 
         try{
-            FileWriter fw = new FileWriter("/home/ferenc/Desktop/Java/Web/Registration/UserPassword.txt", true);
+            FileWriter fw = new FileWriter(path, true);
 
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw);

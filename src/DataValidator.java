@@ -7,9 +7,10 @@ import java.util.Scanner;
  */
 public class DataValidator {
 
-    public boolean dataValidator(String email, String password){
+    public boolean dataValidator(String email, String password, String path){
 
-        File file = new File("/home/ferenc/Desktop/Java/Web/Registration/UserPassword.txt");
+
+        File file = new File(path);
 
         try {
             Scanner scanner = new Scanner(file);

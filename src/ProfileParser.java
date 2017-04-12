@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class ProfileParser {
     ArrayList<String[]> usersData= new ArrayList<>();
 
-    public void profileParser() {
+    public void profileParser(String path) {
 
-        String csvFile = "/home/ferenc/Desktop/Java/Web/Registration/UserPassword.txt";
+        String csvFile = path;
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";

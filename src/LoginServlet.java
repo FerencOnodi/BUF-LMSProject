@@ -21,8 +21,8 @@ public class LoginServlet extends HttpServlet {
 
         this.email = request.getParameter("email");
         this.password = request.getParameter("password");
-
-        boolean validate = dval.dataValidator(email,password);
+        String path = request.getServletContext().getRealPath("/UserPassword.txt");
+        boolean validate = dval.dataValidator(email,password, path);
 
 
         if (validate == false){
