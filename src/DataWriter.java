@@ -22,5 +22,20 @@ public class DataWriter {
             System.out.println(e.getMessage());
         }
     }
+
+    public void dataWriter(String str, String path){
+
+        try{
+            FileWriter fw = new FileWriter(path, true);
+
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw);
+            out.println(str);
+            out.close();
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
 

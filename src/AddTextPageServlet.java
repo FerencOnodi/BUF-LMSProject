@@ -1,3 +1,4 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import javax.servlet.ServletException;
@@ -21,32 +22,31 @@ public class AddTextPageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //Files.copy(request.getInputStream(), Paths.get("/home/vajni/Codecool Projects/Web_Projects/LMS/BUF-LMSProject/web/JSON/request.json"), StandardCopyOption.REPLACE_EXISTING);
-        List<Datacontainer> list = new ArrayList<Datacontainer>();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
         String json = "";
         if(br != null){
             json = br.readLine();
         }
+        System.out.println(json);
+        DataWriter dw = new DataWriter();
+        dw.dataWriter(json, "/home/vajni/Codecool Projects/Web_Projects/LMS/BUF-LMSProject/web/AssignmentData/Assignments.txt");
 
-        // 2. initiate jackson mapper
-        ObjectMapper mapper = new ObjectMapper();
-
-        // 3. Convert received JSON to Article
-        Datacontainer datacontainer = mapper.readValue(json, Datacontainer.class);
-
-        // 4. Set response type to JSON
-        response.setContentType("application/json");
-
-        // 5. Add article to List<Article>
-        list.add(datacontainer);
-
-        // 6. Send List<Article> as JSON to client
-        mapper.writeValue(response.getOutputStream(), datacontainer);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        DataParser dp = new DataParser();
+
+        try (BufferedReader br = new BufferedReader(new FileReader("/home/vajni/Codecool Projects/Web_Projects/LMS/BUF-LMSProject/web/AssignmentData/Assignments.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                dp.stringToMap(line);
+            }
+        }
+
+        PrintWriter out = response.getWriter();
+        out.print(dp.mapList);
     }
 }
 
