@@ -3,21 +3,45 @@
 }
 
 .jumbotron {
-    margin: 0;
+    margin: 50px 0 0 0;
 }
 
 .boxed {
     width: 50%;
     margin: 100px auto;
     text-align: center;
+    background-color: #eeeeee;
 }
 
 .boxed h2 {
     margin-bottom: 50px;
+    padding: 30px 0 20px 0;
+    border-bottom: solid #bebebe 1px;;
 }
 
 .boxed p {
     text-align: center;
-    margin: 20px 0 0 0;
+    margin: 15px 0 0 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+#login {
+    margin: 0;
     padding: 0;
 }
+
+.registerButton {
+    margin-top: 50px;
+}
+
+.sgn {
+    width: 50%;
+    margin-top: 10px;
+}
+
+.reg {
+    margin-top: 5px;
+    width: 18%;
+}
+
