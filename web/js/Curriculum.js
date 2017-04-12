@@ -54,12 +54,13 @@ function addAssignment() {
 
 function loadAssignments() {
 
-   function (data) {
+
+   /*success: function (data) {
        data[i].title
        data[i].text
 
    }
-        /*var parsedJSON = JSON.parse(jsonObject);
+        var parsedJSON = JSON.parse(jsonObject);
 
         var ul = document.getElementById("assignmentList");
         var li = document.createElement("li");

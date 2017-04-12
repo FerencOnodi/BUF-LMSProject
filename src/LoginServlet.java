@@ -25,6 +25,7 @@ public class LoginServlet extends HttpServlet {
         String path = request.getServletContext().getRealPath("/UserPassword.txt");
         boolean validate = dval.dataValidator(email,password, path);
 
+
         if (validate == false){
             response.sendRedirect("./LoginPageAlert.html");
         }else {
@@ -32,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/ProfileServlet");
 
             ProfileParser parser = new ProfileParser();
-            parser.profileParser();
+            parser.profileParser(request.getServletContext().getRealPath("/UserPassword.txt"));
             String name;
             for (String[] data : parser.usersData) {
                 if (data[1].equals(email)) {

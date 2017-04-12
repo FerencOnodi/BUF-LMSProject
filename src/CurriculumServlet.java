@@ -41,10 +41,10 @@ public class CurriculumServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Datacointer>list = new ArrayList<Datacontainer>();
+       /* List<Datacointer>list = new ArrayList<Datacontainer>();
 
         ObjectMapper om = new ObjectMapper;
         response.setContentType("application/json");
-        om.writeValue(response.getOutputStream(),list);
+        om.writeValue(response.getOutputStream(),list);*/
     }
 }

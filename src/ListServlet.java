@@ -80,7 +80,7 @@ public class ListServlet extends HttpServlet {
                 "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
                 "                <ul class=\"nav navbar-nav\">\n" +
                 "                    <li><a href=\"#\">My Profile</a></li>\n" +
-                "                    <li><a href=\"#\">CV</a></li>\n" +
+                "                    <li><a href=\"CVPage.html\">CV</a></li>\n" +
                 "                    <li class=\"active\"><a href=\"#\">Users<span class=\"sr-only\">(current)</span></a></li>\n" +
                 "                </ul>\n" +
                 "                <form action=\"LoginPage.html\" class=\"navbar-form navbar-right\">" +
