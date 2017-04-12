@@ -1,6 +1,6 @@
 var source;
 
-var assignmentElements = {listItems : []};
+var assignmentElements = {Assignments : [], Text : []};
 
 function isbefore(a, b) {
     if (a.parentNode == b.parentNode) {
@@ -31,7 +31,8 @@ function addAssignment() {
     var ul = document.getElementById("assignmentList");
     var li = document.createElement("li");
     var a = document.createElement("a");
-    var assignment = prompt("Enter the title of the assignment!");
+    var assignment = prompt("Enter the title of the assignment:");
+    var text = prompt("Enter the description of the assignment:")
     a.appendChild(document.createTextNode(assignment));
     a.setAttribute("href", "AssPage.html");
     li.appendChild(a);
@@ -39,23 +40,27 @@ function addAssignment() {
     li.setAttribute("ondragenter","dragenter(event)" );
     li.setAttribute("ondragstart", "dragstart(event)");
     ul.appendChild(li);
-    assignmentElements.listItems.push(assignment);
-    console.log(String(assignmentElements.listItems[0]));
-$.ajax({
+    assignmentElements.Assignments = assignment;
+    assignmentElements.Text = text;
+    $.ajax({
     url: "/AddTextPageServlet",
     data: JSON.stringify(assignmentElements),
     type: "POST"
 
-});
+    });
 
 }
 
 
 function loadAssignments() {
 
-    //var jsonObject = jQuery.getJSON("/home/vajni/Codecool Projects/Web_Projects/LMS/BUF-LMSProject/web/JSON/request.json");
-    //var parsedJSON = JSON.parse(jsonObject);
-    //for (var i in parsedJSON) {
+   function (data) {
+       data[i].title
+       data[i].text
+
+   }
+        /*var parsedJSON = JSON.parse(jsonObject);
+
         var ul = document.getElementById("assignmentList");
         var li = document.createElement("li");
         var a = document.createElement("a");
@@ -65,7 +70,8 @@ function loadAssignments() {
         li.setAttribute("draggable", "true");
         li.setAttribute("ondragenter", "dragenter(event)");
         li.setAttribute("ondragstart", "dragstart(event)");
-        ul.appendChild(li);
+        ul.appendChild(li);*/
+
 
 
 }
