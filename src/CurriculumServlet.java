@@ -1,3 +1,5 @@
+import org.codehaus.jackson.map.ObjectMapper;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -5,6 +7,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 /**
  * Created by vajni on 2017.04.10..
@@ -38,7 +41,10 @@ public class CurriculumServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Datacointer>list = new ArrayList<Datacontainer>();
 
-
+        ObjectMapper om = new ObjectMapper;
+        response.setContentType("application/json");
+        om.writeValue(response.getOutputStream(),list);
     }
 }
