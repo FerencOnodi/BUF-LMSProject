@@ -4,6 +4,7 @@ public abstract class User {
     private String role;
 
 
+
     public User(String name, String email, String role){
         this.name = name;
         this.email = email;

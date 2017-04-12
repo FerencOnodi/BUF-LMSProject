@@ -9,7 +9,6 @@ public class DataValidator {
 
     public boolean dataValidator(String email, String password, String path){
 
-
         File file = new File(path);
 
         try {

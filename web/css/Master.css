@@ -5,6 +5,18 @@
     text-align: justify;
 }
 
+[draggable] {
+    user-select: none;
+}
+
+.dragable_list{
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
 .foreground h3 {
     text-align: center;
     margin: 50px 0 20px 0;

@@ -13,6 +13,7 @@ public class ProfileParser {
     public void profileParser(String path) {
 
         String csvFile = path;
+
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
