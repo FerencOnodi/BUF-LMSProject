@@ -28,22 +28,12 @@ public class ListServlet extends HttpServlet {
 
         if(role.equals("Mentor")) {
             for(String[] data : parser.usersData ) {
-                /*content += "<p>" + "<strong>" + "Name: " + "</strong>" + data[0] +
-                        "<strong>" + "  Email: " + "</strong>" + data[1] +
-                        "<strong>" + "  Role: " + "</strong>" + data[3] + "</p>" + "<br>";
-                content += "<tr><td><strong>Name: </strong>" + data[0] + "</td><td><strong>Email: </strong>" + data[1] +
-                        "</td><td><strong>Role: </strong>" + data[3] + "</td></tr><br>";*/
                 content += "<tr><td>" + data[0] + "</td><td>" + data[1] +
                         "</td><td>" + data[3] + "</td></tr><br>";
             }
         } else {
             for(String[] data : parser.usersData ) {
                 if(data[3].equals("Student")) {
-                    /*content += "<p>" + "<strong>" + "Name: " + "</strong>" + data[0] +
-                            "<strong>" + "  Email: " + "</strong>" + data[1] +
-                            "<strong>" + "  Role: " + "</strong>" + data[3] + "<br>" + "</p>";
-                    content += "<tr><td><strong>Name: </strong>" + data[0] + "</td><td><strong>Email: </strong>" + data[1] +
-                            "</td><td><strong>Role: </strong>" + data[3] + "</td></tr><br>";*/
                     content += "<tr><td>" + data[0] + "</td><td>" + data[1] +
                             "</td><td>" + data[3] + "</td></tr><br>";
                 }
