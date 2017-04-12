@@ -1,17 +1,15 @@
-.userbox {
-    width: 50%;
-    margin: 100px auto;
-    background-color: #eeeeee;
-}
-
-.userbox p {
-    margin: 0;
-    padding: 5px 15px;
-}
-
 #title {
     font-size: 26px;
     font-weight: bold;
     border-bottom: solid #bebebe 1px;
     text-align: center;
+}
+
+table{
+    width: 50%;
+    background-color: #eeeeee;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
 }

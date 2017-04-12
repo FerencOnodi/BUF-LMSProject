@@ -28,16 +28,14 @@ public class ListServlet extends HttpServlet {
 
         if(role.equals("Mentor")) {
             for(String[] data : parser.usersData ) {
-                content += "<p>" + "<strong>" + "Name: " + "</strong>" + data[0] +
-                        "<strong>" + "  Email: " + "</strong>" + data[1] +
-                        "<strong>" + "  Role: " + "</strong>" + data[3] + "</p>" + "<br>";
+                content += "<tr><td>" + data[0] + "</td><td>" + data[1] +
+                        "</td><td>" + data[3] + "</td></tr><br>";
             }
         } else {
             for(String[] data : parser.usersData ) {
                 if(data[3].equals("Student")) {
-                    content += "<p>" + "<strong>" + "Name: " + "</strong>" + data[0] +
-                            "<strong>" + "  Email: " + "</strong>" + data[1] +
-                            "<strong>" + "  Role: " + "</strong>" + data[3] + "<br>" + "</p>";
+                    content += "<tr><td>" + data[0] + "</td><td>" + data[1] +
+                            "</td><td>" + data[3] + "</td></tr><br>";
                 }
             }
         }
@@ -90,10 +88,11 @@ public class ListServlet extends HttpServlet {
                 "        </div><!-- /.container-fluid -->\n" +
                 "    </nav><!-- END OF NAVBAR -->" +
 
-                "<div class=\"userbox\">\n" +
-                "<p id=\"title\">List of users</p>\n" +
+                "<table align=\"center\"><th id=\"title\" colspan=3>List of users</th>" +
+                        "<tr><td><strong>Name: </strong>" + "</td><td><strong>Email: </strong>" +
+                        "</td><td><strong>Role: </strong>" + "</td></tr><br>" +
                 content +
-                "</div>\n" +
+                        "</table>" +
 
                 "<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->\n" +
                 "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n" +
