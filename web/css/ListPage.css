@@ -15,3 +15,12 @@
     border-bottom: solid #bebebe 1px;
     text-align: center;
 }
+
+table{
+    width: 50%;
+    background-color: #eeeeee;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
