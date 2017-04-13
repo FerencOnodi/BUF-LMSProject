@@ -62,13 +62,13 @@ function loadAssignments() {
     $(document).ready(function () {
         $.get("/AddTextPageServlet", function (data) {
             console.log("Data: " + data);
-            console.log(data[0]);
-            for (var i=0; i<data.length-1; i++){
-                data[i].replace(",",":");
+            var x = data.substring(1,data.length).split(",",4);
+            for (var i=0; i<x.length; i++){
                 var ul = document.getElementById("assignmentList");
                 var li = document.createElement("li");
                 var a = document.createElement("a");
-                a.appendChild(document.createTextNode(data[i].title));
+                console.log(x[0]);
+                a.appendChild(document.createTextNode(x[0].substring(x[0].indexOf("=")+1)));
                 a.setAttribute("href", "AssPage.html");
                 li.appendChild(a);
                 li.setAttribute("draggable", "true");

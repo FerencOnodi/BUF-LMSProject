@@ -1,3 +1,0 @@
-title=Valaki&text=Valami&id=38c7e03f-ac48-09cb-ca7d-a435326c3be4&published=y
-title=Cucli&text=Gerappa&id=2e55db8a-4f86-3adc-7aeb-3006392ae48c&published=y
-title=Valami&text=Valaki&id=face6d16-a4ab-09ea-502a-e388e5dbd0ec&published=y
