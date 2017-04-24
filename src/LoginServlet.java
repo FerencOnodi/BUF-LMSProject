@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet {
 
     private String email;
     private String password;
-    DataWriter dwri = new DataWriter();
+    //DataWriter dwri = new DataWriter();
     DataValidator dval = new DataValidator();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

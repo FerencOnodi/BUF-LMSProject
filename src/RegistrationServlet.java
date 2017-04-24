@@ -10,7 +10,7 @@ public class RegistrationServlet extends javax.servlet.http.HttpServlet {
     String email;
     String password;
     String role;
-    DataWriter dw = new DataWriter();
+    //DataWriter dw = new DataWriter();
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         doGet(request, response);
@@ -21,7 +21,7 @@ public class RegistrationServlet extends javax.servlet.http.HttpServlet {
         this.password = request.getParameter("password");
         this.role = request.getParameter("role");
 
-        dw.dataWriter(name, email, password, role, path);
+      //  dw.dataWriter(name, email, password, role, path);
 
 
     }
