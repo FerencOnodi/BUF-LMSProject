@@ -2,11 +2,11 @@ import java.sql.*;
 
 public class DataSelection {
 
-    public void selectData(String value, String table) throws SQLException {
+    public String selectData(String selectValue, String header, String table, String value) throws SQLException {
 
-        String url = "jdbc:mysql://localhost:3306/LMS";
-        String user = "root";
-        String password = "@StudenT12345";
+        String url = "jdbc:mysql://localhost:3306/lms";
+        String user = "Vajni";
+        String password = "Driller1986va7";
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
@@ -17,11 +17,14 @@ public class DataSelection {
 
             myStmt = myConn.createStatement();
 
-            myRs = myStmt.executeQuery("select " + value + " from " + table);
+            myRs = myStmt.executeQuery("SELECT " + selectValue + " FROM " + table + " WHERE " + header + "=" + "\'" + value + "\'");
+
+            String returnString = "";
 
             while (myRs.next()) {
-                System.out.println(myRs.getString("last_name") + ", " + myRs.getString("first_name"));
-            }
+                returnString += myRs.getString(selectValue);
+                }
+            return returnString;
         }
         catch (Exception exc) {
             exc.printStackTrace();
@@ -39,6 +42,7 @@ public class DataSelection {
                 myConn.close();
             }
         }
+        return null;
     }
 
 }
