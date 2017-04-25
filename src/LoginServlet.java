@@ -25,20 +25,19 @@ public class LoginServlet extends HttpServlet {
         String emailValidator = "";
         String passwordValidator = "";
         try {
-            emailValidator = dataSelection.selectData(email,"user", "Email", email);
+            emailValidator += dataSelection.selectData(email,"user", "Email", email);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         try {
-            passwordValidator = dataSelection.selectData("Password","user",
+            passwordValidator = dataSelection.selectData(password,"user",
                     "Email", email);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-
-        if (email.equals(emailValidator) && password.equals(passwordValidator)){
+        if (!email.equals(emailValidator) || !password.equals(passwordValidator)){
             response.sendRedirect("./LoginPageAlert.html");
         }else {
             request.setAttribute("email", this.email);

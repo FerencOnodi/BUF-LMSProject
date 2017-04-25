@@ -6,7 +6,8 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        DataUpdate dd = new DataUpdate();
-
+        DataSelection dd = new DataSelection();
+        System.out.println(dd.selectData("vajni@gmail.com","user",
+                "Email", "vajni@gmail.com"));
     }
 }
