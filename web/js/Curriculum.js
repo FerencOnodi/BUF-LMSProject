@@ -35,9 +35,7 @@ function addAssignment() {
     var text = prompt("Enter the description of the assignment:");
     var id = guid();
     var published = prompt("Would you like to publish the assignment? (y/n)");
-    //while (published !== "y" || published !== "n"){
-        //alert("The given answer was incorrect, please type y for yes or n for no.")
-        //published = prompt("Would you like to publish the assignment? (y/n)");
+
     a.appendChild(document.createTextNode(title));
     a.setAttribute("href", "AssPage.html");
     li.appendChild(a);
@@ -49,9 +47,10 @@ function addAssignment() {
     assignmentElements.text = text;
     assignmentElements.id = id;
     assignmentElements.published = published;
+    var obj = JSON.stringify(assignmentElements);
     $.ajax({
     url: "/AddTextPageServlet",
-    data: (assignmentElements),
+    data: obj,
     type: "POST"
     });
 
@@ -61,7 +60,14 @@ function loadAssignments() {
 
     $(document).ready(function () {
         $.get("/AddTextPageServlet", function (data) {
-            console.log("Data: " + data);
+
+            var x = JSON.parse(data);
+            console.log("Data: " + x.title);
+            console.log("Data: " + x.text);
+            console.log("Data: " + x.id);
+            console.log("Data: " + x.published);
+
+            /*
             var x = data.substring(1,data.length).split(",",4);
             for (var i=0; i<x.length; i++){
                 var ul = document.getElementById("assignmentList");
@@ -76,7 +82,7 @@ function loadAssignments() {
                 li.setAttribute("ondragstart", "dragstart(event)");
                 ul.appendChild(li);
             }
-
+            */
 
         })
     })

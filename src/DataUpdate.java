@@ -3,14 +3,13 @@ import java.sql.*;
 public class DataUpdate {
 
     public void updateData(String table, String header, String value, String reference, String referenceValue) throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/LMS";
-        String user = "Vajni";
-        String password = "Driller1986va7";
+
         Connection myConn = null;
         Statement myStmt = null;
         try {
 
-            myConn = DriverManager.getConnection(url, user, password);
+            myConn = DriverManager.getConnection(DataBaseEnums.URL.dbData, DataBaseEnums.USER.dbData ,
+                    DataBaseEnums.PASSWORD.dbData);
 
             myStmt = myConn.createStatement();
 
@@ -32,14 +31,13 @@ public class DataUpdate {
     }
 
     public void updateData(String table, String header, String value, String reference, int referenceValue) throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/LMS";
-        String user = "Vajni";
-        String password = "Driller1986va7";
+
         Connection myConn = null;
         Statement myStmt = null;
         try {
 
-            myConn = DriverManager.getConnection(url, user, password);
+            myConn = DriverManager.getConnection(DataBaseEnums.URL.dbData, DataBaseEnums.USER.dbData ,
+                    DataBaseEnums.PASSWORD.dbData);
 
             myStmt = myConn.createStatement();
 
