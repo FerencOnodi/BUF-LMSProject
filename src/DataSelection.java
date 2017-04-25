@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class DataSelection {
 
-    public String selectData(String selectValue, String header, String table, String value) throws SQLException {
+    public String selectData(String selectValue, String table, String header, String value) throws SQLException {
 
         Connection myConn = null;
         Statement myStmt = null;

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Created by vajni on 2017.03.28..
@@ -15,18 +16,29 @@ public class LoginServlet extends HttpServlet {
 
     private String email;
     private String password;
-    //DataWriter dwri = new DataWriter();
-    DataValidator dval = new DataValidator();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         this.email = request.getParameter("email");
         this.password = request.getParameter("password");
-        String path = request.getServletContext().getRealPath("/UserPassword.txt");
-        boolean validate = dval.dataValidator(email,password, path);
+        DataSelection dataSelection = new DataSelection();
+        String emailValidator = "";
+        String passwordValidator = "";
+        try {
+            emailValidator = dataSelection.selectData(email,"user", "Email", email);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            passwordValidator = dataSelection.selectData("Password","user",
+                    "Email", email);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
-        if (validate == false){
+        if (email.equals(emailValidator) && password.equals(passwordValidator)){
             response.sendRedirect("./LoginPageAlert.html");
         }else {
             request.setAttribute("email", this.email);
