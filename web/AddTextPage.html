@@ -5,14 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Curriculum view</title>
-
+    <title>Add Text Page</title>
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/Master.css">
     <link rel="icon" href="icon.png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/Master.css">
-    <link rel="stylesheet" href="css/Addpage.css">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -21,11 +18,9 @@
     <![endif]-->
 </head>
 
-<body onload="loadAssignments()">
-
+<body>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -36,40 +31,35 @@
             </button>
             <a href="#"><img class="brand" src="icon.png" alt="icon"></a>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#">Profile</a></li>
-                <li class="active"><a href="#">CV <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+                <li><a href="CVPage.html">CV</a></li>
+                <li class="active"><a href="#">Add Text page<span class="sr-only">(current)</span></a></li>
             </ul>
-            <form class="navbar-form navbar-right">
-                <!-- <button type="button" class="btn btn-primary" onclick="addAssignment()">Add assignment</button>
-                <button type="submit" class="btn btn-primary">Add text page</button> -->
-                <button type="button" class="btn btn-primary"><a href="AddAssignmentPage.html">Add assignment</a></button>
-                <button type="submit" class="btn btn-primary"><a href="AddTextPage.html">Add text page</a></button>
-            </form>
         </div><!-- /.navbar-collapse -->
-
     </div><!-- /.container-fluid -->
-</nav>
-<div class="dragable_list">
+</nav><!-- END OF NAVBAR -->
 
-    <ul id="assignmentList">
-        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)"><a href="AssPage.html">First assignment</a></li>
-        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)"><a href="AssPage.html">Second assignment</a></li>
-        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)"><a href="AssPage.html">Third assignment</a></li>
-        <li draggable="true" ondragenter="dragenter(event)" ondragstart="dragstart(event)"><a href="AssPage.html">Fourth assignment</a></li>
-    </ul>
+<div class="foreground">
+    <h3>Add a text page here!</h3><!-- title -->
+    <form>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title">
+        </div>
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea class="form-control" rows="10" id="content"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add page!</button>
+    </form>
 </div>
-<button type="button" onclick="loadAssignments()">Test</button>
-
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-<script src="js/Curriculum.js"></script>
+<script scr="/ScriptFiles/Curriculum.js"></script>
 </body>
 </html>
