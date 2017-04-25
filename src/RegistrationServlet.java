@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 /**
  * Created by ferenc on 2017.03.29..
@@ -10,7 +11,8 @@ public class RegistrationServlet extends javax.servlet.http.HttpServlet {
     String email;
     String password;
     String role;
-    //DataWriter dw = new DataWriter();
+    DataInsertion insertData = new DataInsertion();
+
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         doGet(request, response);
@@ -21,18 +23,18 @@ public class RegistrationServlet extends javax.servlet.http.HttpServlet {
         this.password = request.getParameter("password");
         this.role = request.getParameter("role");
 
-      //  dw.dataWriter(name, email, password, role, path);
+        try {
+            insertData.insertUser(name,email,role,password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         response.setContentType("text/html");
-        /*PrintWriter printWriter = response.getWriter();
-        printWriter.println(request.getParameter("name"));
-        printWriter.println(request.getParameter("email"));
-        printWriter.println(request.getParameter("password"));
-        printWriter.println(request.getParameter("role"));*/
+
         response.sendRedirect("/LoginPage.html");
     }
 }

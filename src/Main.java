@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        DataDeletion dd = new DataDeletion();
-        dd.deleteData("user", "Email", "vajni@gmail.com");
+        DataUpdate dd = new DataUpdate();
+        
     }
 }

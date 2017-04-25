@@ -3,7 +3,7 @@
  */
 public enum DataBaseEnums {
 
-    URL("jdbc:mysql://localhost:3306/LMS"), USER("root"), PASSWORD("@StudenT12345");
+    URL("jdbc:mysql://localhost:3306/LMS?characterEncoding=UTF-8"), USER("root"), PASSWORD("@StudenT12345");
 
     public String dbData;
 

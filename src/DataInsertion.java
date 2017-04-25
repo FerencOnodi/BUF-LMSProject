@@ -7,7 +7,7 @@ public class DataInsertion {
         Connection myConn = null;
         Statement myStmt = null;
         try {
-
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
             myConn = DriverManager.getConnection(DataBaseEnums.URL.dbData, DataBaseEnums.USER.dbData ,
                     DataBaseEnums.PASSWORD.dbData);
 
@@ -34,7 +34,7 @@ public class DataInsertion {
         Connection myConn = null;
         Statement myStmt = null;
         try {
-
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
             myConn = DriverManager.getConnection(DataBaseEnums.URL.dbData, DataBaseEnums.USER.dbData ,
                     DataBaseEnums.PASSWORD.dbData);
 
@@ -61,7 +61,7 @@ public class DataInsertion {
         Connection myConn = null;
         Statement myStmt = null;
         try {
-
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
             myConn = DriverManager.getConnection(DataBaseEnums.URL.dbData, DataBaseEnums.USER.dbData ,
                     DataBaseEnums.PASSWORD.dbData);
 
