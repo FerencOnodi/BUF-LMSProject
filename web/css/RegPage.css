@@ -13,7 +13,14 @@
 }
 
 .reg-form input {
-    margin: 5px 0 5px 0;
+    width: 70%;
+    margin: 5px auto;
+    padding: 0;
+}
+
+.reg-form select {
+    width: 70%;
+    margin: 5px auto;
     padding: 0;
 }
 
