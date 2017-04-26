@@ -1,24 +1,50 @@
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
+import java.sql.*;
 
-/**
- * Created by vajni on 2017.04.12..
- */
+
 public class DataParser {
 
-    Map<String, String> assignmentMap = new LinkedHashMap<String, String>();
-    List<Map> mapList = new ArrayList<>();
-    public void stringToMap(String textLine) {
+    public List<List<String>> listDataParser(String role) throws SQLException {
 
-        String text = textLine;
-        for (String keyValue : text.split(" *& *")) {
-            String[] pairs = keyValue.split(" *= *", 2);
-            assignmentMap.put(pairs[0], pairs.length == 1 ? "" : pairs[1]);
+        Connection myConn = null;
+        Statement myStmt = null;
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            myConn = DriverManager.getConnection(DataBaseEnums.URL.dbData, DataBaseEnums.USER.dbData,
+                    DataBaseEnums.PASSWORD.dbData);
+
+            myStmt = myConn.createStatement();
+            ResultSet resultSet = null;
+
+            if (role.equals("Mentor")) {
+               resultSet = myStmt.executeQuery("SELECT * FROM user");
+            } else if (role.equals("Student")) {
+                resultSet = myStmt.executeQuery("SELECT * FROM user WHERE role='Student'");
+            }
+
+            List<List<String>> users = new ArrayList<>();
+
+            while (resultSet.next()) {
+                List<String> usersData = new ArrayList();
+                usersData.add(resultSet.getString("UserName"));
+                usersData.add(resultSet.getString("Email"));
+                usersData.add(resultSet.getString("Role"));
+                users.add(usersData);
+            }
+
+            return users;
+
+
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-            mapList.add(assignmentMap);
+        return null;
     }
-
-
 }

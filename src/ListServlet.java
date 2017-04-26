@@ -1,12 +1,15 @@
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by ferenc on 2017.03.30..
@@ -20,25 +23,30 @@ public class ListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String content = "";
 
-        ProfileParser parser = new ProfileParser();
-        String path = request.getServletContext().getRealPath("/UserPassword.txt");
-        parser.profileParser(path);
+        Cookie[] cookies = request.getCookies();
+        String cookieRole = cookies[2].getValue();
+        DataParser dd = new DataParser();
+        List<List<String>> usersData = null;
 
-        String role = (String)request.getParameter("role");
+        if(cookieRole.equals("Mentor")) {
+            try {
+                usersData = dd.listDataParser("Mentor");
+                for (List element : usersData){
+                    content += "<tr><td>" + element.get(0) + "</td><td>" + element.get(1) +
+                            "</td><td>" + element.get(2) + "</td></tr><br>";}
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
-        if(role.equals("Mentor")) {
-            for(String[] data : parser.usersData ) {
-                content += "<tr><td>" + data[0] + "</td><td>" + data[1] +
-                        "</td><td>" + data[3] + "</td></tr><br>";
+        }else {
+            try {
+                usersData = dd.listDataParser("Student");
+                for (List element : usersData){
+                    content += "<tr><td>" + element.get(0) + "</td><td>" + element.get(1) +
+                            "</td><td>" + element.get(2) + "</td></tr><br>";}
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } else {
-            for(String[] data : parser.usersData ) {
-                if(data[3].equals("Student")) {
-                    content += "<tr><td>" + data[0] + "</td><td>" + data[1] +
-                            "</td><td>" + data[3] + "</td></tr><br>";
-                }
-            }
-        }
 
 
         PrintWriter out = response.getWriter();
@@ -100,4 +108,4 @@ public class ListServlet extends HttpServlet {
                 "<script src=\"js/bootstrap.min.js\"></script>" +
                 "</body>");
     }
-}
+}}
