@@ -61,6 +61,7 @@ public class LoginServlet extends HttpServlet {
             Cookie cookieUser = new Cookie("user", userName);
             Cookie cookieRole = new Cookie("role", role);
             cookieUser.setMaxAge(30*60);
+            cookieRole.setMaxAge(30*60);
             response.addCookie(cookieUser);
             response.addCookie(cookieRole);
             rd.forward(request, response);
