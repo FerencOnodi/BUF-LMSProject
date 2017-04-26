@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         String emailValidator = "";
         String passwordValidator = "";
         try {
-            emailValidator += dataSelection.selectData(email,"user", "Email", email);
+            emailValidator = dataSelection.selectData(email,"user", "Email", email);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -43,26 +43,34 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("email", this.email);
             RequestDispatcher rd = request.getRequestDispatcher("/ProfileServlet");
 
-            ProfileParser parser = new ProfileParser();
-            parser.profileParser(request.getServletContext().getRealPath("/UserPassword.txt"));
-            String name;
-            for (String[] data : parser.usersData) {
-                if (data[1].equals(email)) {
-                    name = data[0];
-                    String role = data[3];
+            String userName = "";
+            String role = "";
 
-                    Cookie cookieUser = new Cookie("user", name.replace(" ","_"));
-                    Cookie cookieRole = new Cookie("role", role);
-                    cookieUser.setMaxAge(30*60);
-                    response.addCookie(cookieUser);
-                    response.addCookie(cookieRole);
-                    rd.forward(request, response);
-                    response.sendRedirect("./UserProfile.html");
+            try {
+                userName = dataSelection.selectDataByHeader("UserName","user", "Email", email);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                role = dataSelection.selectDataByHeader("Role","user", "Email", email);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            Cookie cookieUser = new Cookie("user", userName);
+            Cookie cookieRole = new Cookie("role", role);
+            cookieUser.setMaxAge(30*60);
+            response.addCookie(cookieUser);
+            response.addCookie(cookieRole);
+            rd.forward(request, response);
+            response.sendRedirect("./UserProfile.html");
+
                 }
 
             }
-        }
-    }
+
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
