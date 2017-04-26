@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
-            Cookie cookieUser = new Cookie("user", userName);
+            Cookie cookieUser = new Cookie("user", userName.replace(" ","_"));
             Cookie cookieRole = new Cookie("role", role);
             cookieUser.setMaxAge(30*60);
             cookieRole.setMaxAge(30*60);
