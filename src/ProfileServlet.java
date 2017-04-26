@@ -1,10 +1,12 @@
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 /**
  * Created by ferenc on 2017.03.30..
@@ -17,21 +19,31 @@ public class ProfileServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProfileParser parser = new ProfileParser();
-        String path = request.getServletContext().getRealPath("/UserPassword.txt");
-        parser.profileParser(path);
-
-        String mail = (String)request.getAttribute("email");
 
         String name = "";
         String role = "";
+        String cookieName = "";
+        String cookieRole = "";
+        Cookie[] cookies = request.getCookies();
 
-        for(String[] data: parser.usersData ){
-            if (data[1].equals(mail)) {
-                name = data[0];
-                role = data[3];
-            }
+        cookieName = cookies[1].getValue().replace("_", " ");
+        System.out.println(cookieName);
+        cookieRole = cookies[2].getValue();
+
+        DataSelection dataSelection = new DataSelection();
+        try {
+            name = dataSelection.selectData(cookieName, "user", "UserName", cookieName);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
+        try {
+            role = dataSelection.selectData(cookieRole, "user", "UserName", cookieName);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String mail = (String)request.getAttribute("email");
 
         PrintWriter out = response.getWriter();
         String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " +
@@ -91,7 +103,7 @@ public class ProfileServlet extends HttpServlet {
                         "</tr>\n" +
                         "<tr>\n" +
                             "<th>Role:</th>\n" +
-                            "<td>" +role + "</td>\n" +
+                            "<td>" + role + "</td>\n" +
                         "</tr>\n" +
                     "</table>" +
                     "<a href="+"\\" + "ListServlet?" +"role=" + role + "><input type=" + "\""+ "submit" + "\"" +
