@@ -15,24 +15,28 @@ public class DataDeletionTest {
     DataDeletion dd = new DataDeletion();
 
     @Test
-    public void testInsertion() throws SQLException {
+    public void testDelete() throws SQLException {
         di.insertUser("testuser", "testuser@test.test","Student","123");
         dd.deleteData("user","userName","testuser");
-        String result = ds.selectData("testuser@testuser.test","user","userName","testuser");
+        String result = ds.selectData("testuser@test.test","user","userName","testuser");
         assertEquals("", result);
     }
 
-    public static void main(String[] args) throws SQLException {
-
-        DataInsertion di = new DataInsertion();
-        DataSelection ds = new DataSelection();
-        DataDeletion dd = new DataDeletion();
-
+    @Test
+    public  void testDeleteInt() throws SQLException {
         di.insertUser("testuser", "testuser@test.test","Student","123");
-        dd.deleteData("user","userName","testuser");
-        String result = ds.selectData("testuser@testuser.test","user","userName","testuser");
-        System.out.println(result);
-        System.out.println("That's all folks!");
-
+        int userid = Integer.parseInt(ds.selectDataByHeader("UserID","user","Email","testuser@test.test"));
+        di.insertAssignment("Test","This is a test",10,10,"yes","yes",userid);
+        int firstCount = ds.countRows("assignment");
+        dd.deleteData("assignment","MaxPoints",10);
+        int secondCount = ds.countRows("assignment");
+        try {
+            assertEquals(firstCount-1,secondCount);
+        } finally {
+            dd.deleteData("assignment","Title","Test");
+            dd.deleteData("user","userName","testuser");
+        }
     }
+
+
 }

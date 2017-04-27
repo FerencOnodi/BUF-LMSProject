@@ -14,11 +14,11 @@ public class DataInsertionTest {
     DataDeletion dd = new DataDeletion();
 
     @Test
-    public void testInsertion() throws SQLException {
+        public void testUserInsertion() throws SQLException {
         di.insertUser("testuser", "testuser@test.test","Student","123");
-        String result = ds.selectData("testuser@testuser.test","user","userName","testuser");
+        String result = ds.selectData("testuser@test.test","user","userName","testuser");
         try {
-            assertEquals("testuser@testuser.test",result);
+            assertEquals("testuser@test.test",result);
         }
         finally {
             dd.deleteData("user","userName","testuser");
@@ -26,8 +26,24 @@ public class DataInsertionTest {
 
 
 
+
     }
 
+    @Test
+    public void testAssignmentInsertion() throws SQLException {
+        di.insertUser("testuser", "testuser@test.test","Student","123");
+        int userid = Integer.parseInt(ds.selectDataByHeader("UserID","user","Email","testuser@test.test"));
+        int firstCount = ds.countRows("assignment");
+        di.insertAssignment("Test","This is a test",10,10,"yes","yes",userid);
+        int secondCount = ds.countRows("assignment");
+        try {
+            assertEquals(firstCount + 1, secondCount);
+        } finally {
+            dd.deleteData("assignment","Title","Test");
+            dd.deleteData("user","userName","testuser");
+        }
+
+    }
 
 
 
