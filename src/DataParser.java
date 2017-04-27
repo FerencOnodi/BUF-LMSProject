@@ -47,4 +47,49 @@ public class DataParser {
         }
         return null;
     }
+
+    //Ferkó
+    public List<List<String>> assignmentDataParser() throws SQLException {
+
+        Connection myConn = null;
+        Statement myStmt = null;
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            myConn = DriverManager.getConnection(DataBaseEnums.URL.dbData, DataBaseEnums.USER.dbData,
+                    DataBaseEnums.PASSWORD.dbData);
+
+            myStmt = myConn.createStatement();
+            ResultSet resultSet = null;
+
+            resultSet = myStmt.executeQuery("SELECT * FROM assignment");
+
+
+            List<List<String>> assignments = new ArrayList<>();
+
+            while (resultSet.next()) {
+                List<String> assData = new ArrayList();
+                assData.add(resultSet.getString("Title"));
+                assData.add(resultSet.getString("Content"));
+                assData.add(resultSet.getString("MaxPoints"));
+                assData.add(resultSet.getString("Score"));
+                assData.add(resultSet.getString("SubmissionRequirement"));
+                assData.add(resultSet.getString("Published"));
+                assData.add(resultSet.getString("UserID"));
+                assignments.add(assData);
+            }
+
+            return assignments;
+
+
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

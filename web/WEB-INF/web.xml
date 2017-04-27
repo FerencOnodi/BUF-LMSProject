@@ -71,4 +71,13 @@
         <url-pattern>/AddAssignmentServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CVServlet</servlet-name>
+        <servlet-class>CVServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CVServlet</servlet-name>
+        <url-pattern>/CVServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
