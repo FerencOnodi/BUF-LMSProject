@@ -80,4 +80,13 @@
         <url-pattern>/CVServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ShowContentServlet</servlet-name>
+        <servlet-class>ShowContentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowContentServlet</servlet-name>
+        <url-pattern>/ShowContentServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
