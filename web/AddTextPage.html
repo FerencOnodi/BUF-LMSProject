@@ -43,14 +43,21 @@
 
 <div class="foreground">
     <h3>Add a text page here!</h3><!-- title -->
-    <form>
+    <form action="AddTextPageServlet" method="post">
         <div class="form-group">
             <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title">
+            <input type="text" name="title" class="form-control" id="title">
         </div>
         <div class="form-group">
             <label for="content">Content:</label>
-            <textarea class="form-control" rows="10" id="content"></textarea>
+            <textarea class="form-control" name="content" rows="10" id="content"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="published">Published</label>
+            <select name="published" class="form-control" id="published">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Add page!</button>
     </form>
