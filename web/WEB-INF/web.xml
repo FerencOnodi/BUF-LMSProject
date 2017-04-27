@@ -62,4 +62,13 @@
         <url-pattern>/AddTextPageServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddAssignmentServlet</servlet-name>
+        <servlet-class>AddAssignmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddAssignmentServlet</servlet-name>
+        <url-pattern>/AddAssignmentServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
