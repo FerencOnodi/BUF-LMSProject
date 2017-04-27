@@ -1,6 +1,7 @@
 var source;
 
-var assignmentElements = {title : "", text : "", id: "", published: ""};
+var assignmentElements = {title : "", content : "", maxPoints : "", score: "", submissionRequirement: "",
+    published: ""};
 
 function isbefore(a, b) {
     if (a.parentNode == b.parentNode) {
@@ -28,24 +29,18 @@ function dragstart(e) {
 }
 
 function addAssignment() {
-    var ul = document.getElementById("assignmentList");
-    var li = document.createElement("li");
-    var a = document.createElement("a");
-    var title = prompt("Enter the title of the assignment:");
-    var text = prompt("Enter the description of the assignment:");
-    var id = guid();
-    var published = prompt("Would you like to publish the assignment? (y/n)");
 
-    a.appendChild(document.createTextNode(title));
-    a.setAttribute("href", "AssPage.html");
-    li.appendChild(a);
-    li.setAttribute("draggable", "true");
-    li.setAttribute("ondragenter","dragenter(event)" );
-    li.setAttribute("ondragstart", "dragstart(event)");
-    ul.appendChild(li);
+    var title = null;
+    var content = null;
+    var maxPoints = null;
+    var score = null;
+    var submissionRequirement = null;
+    var published = null;
     assignmentElements.title = title;
-    assignmentElements.text = text;
-    assignmentElements.id = id;
+    assignmentElements.content = content;
+    assignmentElements.maxPoints = maxPoints;
+    assignmentElements.score = score;
+    assignmentElements.submissionRequirement = submissionRequirement;
     assignmentElements.published = published;
     var obj = JSON.stringify(assignmentElements);
     $.ajax({

@@ -22,8 +22,6 @@ public class AddTextPageServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //Files.copy(request.getInputStream(), Paths.get("/home/vajni/Codecool Projects/Web_Projects/LMS/BUF-LMSProject/web/JSON/request.json"), StandardCopyOption.REPLACE_EXISTING);
-
         StringBuffer jb = new StringBuffer();
         String line = null;
         try {
@@ -35,31 +33,14 @@ public class AddTextPageServlet extends HttpServlet {
         }
         ObjectMapper om = new ObjectMapper();
         AssignmentElement ae = om.readValue(jb.toString(), AssignmentElement.class);
-        //DataWriter dw = new DataWriter();
-        //dw.dataWriter(jb.toString(), "/home/vajni/Codecool Projects/Web_Projects/lofasz/BUF-LMSProject/web/Submissions/Assignments.txt");
 
+        System.out.println(ae.toString());
 
-       /* BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
-        String json = "";
-        if(br != null){
-            json = br.readLine();
-        }
-        System.out.println(json);
-        DataWriter dw = new DataWriter();
-        dw.dataWriter(json, "/home/vajni/Codecool Projects/Web_Projects/lofasz/BUF-LMSProject/web/Submissions/Assignments.txt");
-    */
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        /*DataParser dp = new DataParser();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("/home/vajni/Codecool Projects/Web_Projects/lofasz/BUF-LMSProject/web/Submissions/Assignments.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                dp.stringToMap(line);
-            }
-        }*/
 
         BufferedReader br = new BufferedReader(new FileReader("/home/vajni/Codecool Projects/Web_Projects/lofasz/BUF-LMSProject/web/AssignmentData/Assignments.txt"));
         StringBuffer sb = new StringBuffer();
@@ -68,12 +49,11 @@ public class AddTextPageServlet extends HttpServlet {
             sb.append(json);
         }
         br.close();
+        response.setContentType("application/json");
 
         ObjectMapper om = new ObjectMapper();
-        String jsonString = om.writeValueAsString(sb.toString());
+        //om.writeValue(response.getOutputStream(),list goes here);
 
-        PrintWriter out = response.getWriter();
-        out.print(jsonString);
     }
 }
 

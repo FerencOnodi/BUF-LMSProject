@@ -16,7 +16,6 @@ public class RegistrationServlet extends javax.servlet.http.HttpServlet {
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         doGet(request, response);
-        String path = request.getServletContext().getRealPath("/UserPassword.txt");
 
         this.name = request.getParameter("name");
         this.email = request.getParameter("email");
