@@ -29,8 +29,10 @@ public class CVServlet extends HttpServlet {
         try {
             assData = dataParser.assignmentDataParser();
             for (List element: assData) {
+                if(element.get(5).equals("Yes")) {
                 content += "<li><a href=" + "\"ShowContentServlet?" + "title=" + element.get(0) + "\"" + "target=\"_blank\">"
                         + element.get(0) + "</a></li>";
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

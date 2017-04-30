@@ -72,7 +72,7 @@ public class AddTextPageServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        response.sendRedirect("/CVPage.html");
+        response.sendRedirect("/CVServlet");
 
         //VAJNI RÉSZE VAN INNENTŐL
         /*BufferedReader br = new BufferedReader(new FileReader("/home/vajni/Codecool Projects/Web_Projects/lofasz/BUF-LMSProject/web/AssignmentData/Assignments.txt"));

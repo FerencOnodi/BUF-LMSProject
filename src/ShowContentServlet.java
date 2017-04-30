@@ -27,7 +27,10 @@ public class ShowContentServlet extends HttpServlet {
             contentData = dataParser.assignmentDataParser();
             for (List element: contentData) {
                 if(title.equals(element.get(0))) {
-                content += "<p>" + element.get(1) + "</p>";
+                    content += "<p>" + element.get(1) + "</p>";
+                    if(element.get(4).equals("yes")) {
+                        content += "<p>" + "Maximum Score: " + element.get(2) + "</p>";
+                    }
                 }
             }
         } catch (SQLException e) {
