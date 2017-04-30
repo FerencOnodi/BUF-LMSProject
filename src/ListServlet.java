@@ -22,7 +22,7 @@ public class ListServlet extends HttpServlet {
         String content = "";
 
         Cookie[] cookies = request.getCookies();
-        String cookieRole = cookies[2].getValue();
+        String cookieRole = cookies[1].getValue();
         DataParser dd = new DataParser();
         List<List<String>> usersData = null;
 

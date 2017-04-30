@@ -26,8 +26,8 @@ public class ProfileServlet extends HttpServlet {
         String cookieRole = "";
         Cookie[] cookies = request.getCookies();
 
-        cookieName = cookies[1].getValue().replace("_", " ");
-        cookieRole = cookies[2].getValue();
+        cookieName = cookies[0].getValue().replace("_", " ");
+        cookieRole = cookies[1].getValue();
 
         DataSelection dataSelection = new DataSelection();
         try {

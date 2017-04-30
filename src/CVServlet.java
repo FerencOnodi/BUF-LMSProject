@@ -20,7 +20,7 @@ public class CVServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Cookie[] cookies = request.getCookies();
-        String cookieRole = cookies[2].getValue();
+        String cookieRole = cookies[1].getValue();
         DataParser dataParser = new DataParser();
         List<List<String>> assData = null;
 
