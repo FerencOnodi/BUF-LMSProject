@@ -42,9 +42,9 @@ public class CVServlet extends HttpServlet {
         CVPage cvPage = new CVPage();
 
         if (cookieRole.equals("Mentor")) {
-            out.println(cvPage.generateMentorPage(content));
+            out.println(cvPage.generateMentorPage(cookieRole, content));
         } else {
-            out.println(cvPage.generateStudentPage(content));
+            out.println(cvPage.generateStudentPage(cookieRole, content));
         }
     }
 }

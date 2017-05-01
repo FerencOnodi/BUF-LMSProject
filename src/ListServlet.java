@@ -31,7 +31,7 @@ public class ListServlet extends HttpServlet {
                 usersData = dd.listDataParser("Mentor");
                 for (List element : usersData) {
                     content += "<tr><td>" + element.get(0) + "</td><td>" + element.get(1) +
-                            "</td><td>" + element.get(2) + "</td></tr><br>";
+                            "</td><td>" + element.get(2) + "</td></tr>";
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -42,7 +42,7 @@ public class ListServlet extends HttpServlet {
                 usersData = dd.listDataParser("Student");
                 for (List element : usersData) {
                     content += "<tr><td>" + element.get(0) + "</td><td>" + element.get(1) +
-                            "</td><td>" + element.get(2) + "</td></tr><br>";
+                            "</td><td>" + element.get(2) + "</td></tr>";
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

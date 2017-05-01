@@ -4,7 +4,7 @@
 public class ProfilePage {
 
     public String generatePage (String name, String mail, String role) {
-        String page = "<!doctype html public \"-//w3c//dtd html 4.0 " +
+        return "<!doctype html public \"-//w3c//dtd html 4.0 " +
                 "transitional//en\">\n" +
                 "<html lang=\"hu\">\n" +
                 "<head>\n" +
@@ -36,7 +36,7 @@ public class ProfilePage {
                 "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
                 "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
                 "                <ul class=\"nav navbar-nav\">\n" +
-                "                    <li class=\"active\"><a href=\"#login\">My profile<span class=\"sr-only\">(current)</span></a></li>\n" +
+                "                    <li class=\"active\"><a href=\"#login\">Profile<span class=\"sr-only\">(current)</span></a></li>\n" +
                 "                    <li><a href=" + "\\" + "CVServlet?" + "role=" + role + ">CV</a></li>\n" +
                 "                    <li><a href=" + "\\" + "ListServlet?" + "role=" + role + ">Users</a></li>\n" +
                 "                </ul>\n" +
@@ -70,8 +70,6 @@ public class ProfilePage {
                 "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n" +
                 "<!-- Include all compiled plugins (below), or include individual files as needed -->\n" +
                 "<script src=\"js/bootstrap.min.js\"></script>" +
-
                 "</body>";
-        return page;
     }
 }

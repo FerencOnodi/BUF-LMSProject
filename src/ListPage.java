@@ -4,7 +4,7 @@
 public class ListPage {
 
     public String generateListPage (String content) {
-        String listPage = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n" +
+        return "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n" +
         "<html lang=\"hu\">\n" +
                 "<head>\n" +
                 "<meta charset=\"UTF-8\">\n" +
@@ -35,7 +35,7 @@ public class ListPage {
                 "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
                 "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
                 "                <ul class=\"nav navbar-nav\">\n" +
-                "                    <li><a href=" + "\\" + "ProfileServlet?\">My Profile</a></li>\n" +
+                "                    <li><a href=" + "\\" + "ProfileServlet?\">Profile</a></li>\n" +
                 "                    <li><a href=" + "\\" + "CVServlet?\">CV</a></li>\n" +
                 "                    <li class=\"active\"><a href=\"#\">Users<span class=\"sr-only\">(current)</span></a></li>\n" +
                 "                </ul>\n" +
@@ -57,6 +57,5 @@ public class ListPage {
                 "<!-- Include all compiled plugins (below), or include individual files as needed -->\n" +
                 "<script src=\"js/bootstrap.min.js\"></script>" +
                 "</body>";
-        return listPage;
     }
 }

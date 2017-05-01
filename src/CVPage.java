@@ -3,8 +3,8 @@
  */
 public class CVPage {
 
-    public String generateMentorPage(String content) {
-        String page = "<!DOCTYPE html>\n" +
+    public String generateMentorPage(String role, String content) {
+        return "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
                 "    <meta charset=\"utf-8\">\n" +
@@ -29,7 +29,7 @@ public class CVPage {
                 "\n" +
                 "<body onload=\"loadAssignments()\">\n" +
                 "\n" +
-                "<nav class=\"navbar navbar-inverse\">\n" +
+                "<nav class=\"navbar navbar-inverse navbar-fixed-top\">\n" +
                 "    <div class=\"container-fluid\">\n" +
                 "\n" +
                 "        <!-- Brand and toggle get grouped for better mobile display -->\n" +
@@ -46,14 +46,16 @@ public class CVPage {
                 "        <!-- Collect the nav links, forms, and other content for toggling -->\n" +
                 "        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
                 "            <ul class=\"nav navbar-nav\">\n" +
-                "                <li><a href=\"#\">Profile</a></li>\n" +
+                "                <li><a href=" + "\\" + "ProfileServlet?" + "role=" + role + ">Profile</a></li>\n" +
                 "                <li class=\"active\"><a href=\"#\">CV <span class=\"sr-only\">(current)</span></a></li>\n" +
+                "                <li><a href=" + "\\" + "ListServlet?" + "role=" + role + ">Users</a></li>\n" +
                 "            </ul>\n" +
                 "            <form class=\"navbar-form navbar-right\">\n" +
                 "                <!-- <button type=\"button\" class=\"btn btn-primary\" onclick=\"addAssignment()\">Add assignment</button>\n" +
                 "                <button type=\"submit\" class=\"btn btn-primary\">Add text page</button> -->\n" +
                 "                <a href=\"AddAssignmentPage.html\"><button type=\"button\" class=\"btn btn-primary\">Add Assignment</button></a>\n" +
                 "                <a href=\"AddTextPage.html\"><button type=\"button\" class=\"btn btn-primary\">Add Text Page</button></a>\n" +
+                "                <a href=\"LoginPage.html\"><button type=\"button\" class=\"btn btn-primary\">Log out</button></a>\n" +
                 "            </form>\n" +
                 "        </div><!-- /.navbar-collapse -->\n" +
                 "\n" +
@@ -74,12 +76,10 @@ public class CVPage {
                 "<script src=\"js/Curriculum.js\"></script>\n" +
                 "</body>\n" +
                 "</html>";
-
-        return page;
     }
 
-    public String generateStudentPage(String content) {
-        String page = "<!DOCTYPE html>\n" +
+    public String generateStudentPage(String role, String content) {
+        return "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
                 "    <meta charset=\"utf-8\">\n" +
@@ -104,7 +104,7 @@ public class CVPage {
                 "\n" +
                 "<body onload=\"loadAssignments()\">\n" +
                 "\n" +
-                "<nav class=\"navbar navbar-inverse\">\n" +
+                "<nav class=\"navbar navbar-inverse navbar-fixed-top\">\n" +
                 "    <div class=\"container-fluid\">\n" +
                 "\n" +
                 "        <!-- Brand and toggle get grouped for better mobile display -->\n" +
@@ -121,11 +121,14 @@ public class CVPage {
                 "        <!-- Collect the nav links, forms, and other content for toggling -->\n" +
                 "        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
                 "            <ul class=\"nav navbar-nav\">\n" +
-                "                <li><a href=\"#\">Profile</a></li>\n" +
+                "                <li><a href=" + "\\" + "ProfileServlet?" + "role=" + role + ">Profile</a></li>\n" +
                 "                <li class=\"active\"><a href=\"#\">CV <span class=\"sr-only\">(current)</span></a></li>\n" +
+                "                <li><a href=" + "\\" + "ListServlet?" + "role=" + role + ">Users</a></li>\n" +
                 "            </ul>\n" +
+                "            <form action=\"LoginPage.html\" class=\"navbar-form navbar-right\">\n" +
+                "               <button type=\"submit\" class=\"btn btn-primary\">Log out</button>" +
+                "            </form>" +
                 "        </div><!-- /.navbar-collapse -->\n" +
-                "\n" +
                 "    </div><!-- /.container-fluid -->\n" +
                 "</nav>\n" +
                 "<div class=\"dragable_list\">\n" +
@@ -143,7 +146,5 @@ public class CVPage {
                 "<script src=\"js/Curriculum.js\"></script>\n" +
                 "</body>\n" +
                 "</html>";
-
-        return page;
     }
 }
