@@ -22,6 +22,7 @@ public class ProfileServlet extends HttpServlet {
 
         String name = "";
         String role = "";
+        String mail = "";
         String cookieName = "";
         String cookieRole = "";
         Cookie[] cookies = request.getCookies();
@@ -42,7 +43,11 @@ public class ProfileServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        String mail = (String)request.getAttribute("email");
+        try {
+            mail = dataSelection.selectDataByHeader("Email", "user", "UserName", name);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         request.setAttribute("role", role);
 

@@ -37,7 +37,7 @@ public class ProfilePage {
                 "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
                 "                <ul class=\"nav navbar-nav\">\n" +
                 "                    <li class=\"active\"><a href=\"#login\">My profile<span class=\"sr-only\">(current)</span></a></li>\n" +
-                "                    <li><a href=\"#\">CV</a></li>\n" +
+                "                    <li><a href=" + "\\" + "CVServlet?" + "role=" + role + ">CV</a></li>\n" +
                 "                    <li><a href=" + "\\" + "ListServlet?" + "role=" + role + ">Users</a></li>\n" +
                 "                </ul>\n" +
                 "                <form action=\"LoginPage.html\" class=\"navbar-form navbar-right\">" +
